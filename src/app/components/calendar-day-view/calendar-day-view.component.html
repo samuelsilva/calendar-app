@@ -1,0 +1,50 @@
+<div class="calendar-day-view">
+  <div class="calendar-day-view-header">
+    <h3>{{selectedDate | date: 'mediumDate'}}</h3>
+  </div>
+  <div class="calendar-day-view-content">
+    <div *ngIf="appointmentsForSelectedDate.length === 0" class="no-appointments">No appointments for this day</div>
+    <div *ngFor="let appointment of appointmentsForSelectedDate" class="appointment" (click)="removeAppointment(appointment.id)">
+      <div class="title">{{appointment.title}}</div>
+      <div class="time">{{appointment.start | date: 'shortTime'}} - {{appointment.end | date: 'shortTime'}}</div>
+    </div>
+    <div class="new-appointment" (click)="onNewAppointment()">
+      <i class="material-icons">add_circle_outline</i>
+      <span>New appointment</span>
+    </div>
+  </div>
+</div>
+
+
+<!--<div class="calendar-day-view">
+  <div class="calendar-day-view-header">
+    <h3>{{date | date: 'mediumDate'}}</h3>
+  </div>
+  <div class="calendar-day-view-content">
+    <div *ngIf="appointments.length === 0" class="no-appointments">No appointments for this day</div>
+    <div *ngFor="let appointment of appointments" class="appointment" (click)="removeAppointment(appointment.id)">
+      <div class="title">{{appointment.title}}</div>
+      <div class="time">{{appointment.start | date: 'shortTime'}} - {{appointment.end | date: 'shortTime'}}</div>
+    </div>
+  </div>
+</div>
+
+<div class="calendar-day-view">
+    <div class="header">
+      <h2>{{ currentDate | date:'fullDate' }}</h2>
+    </div>
+  
+    <div class="body">
+      <ul class="appointments">
+        <li *ngFor="let appointment of appointments">
+          <app-appointment [appointment]="appointment"></app-appointment>
+        </li>
+      </ul>
+  
+      <div class="add-appointment">
+        <h3>Add Appointment</h3>
+        <app-appointment-form (appointmentAdded)="addAppointment($event)"></app-appointment-form>
+      </div>
+    </div>
+  </div>
+-->

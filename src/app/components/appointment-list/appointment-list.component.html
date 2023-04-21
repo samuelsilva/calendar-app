@@ -1,0 +1,43 @@
+<div class="appointment-list">
+  <div class="appointment-list-header">
+    <h3>{{selectedDate | date: 'mediumDate'}}</h3>
+    <button mat-icon-button (click)="addAppointment()">
+      <mat-icon>add_circle_outline</mat-icon>
+    </button>
+  </div>
+  <div class="appointment-list-content">
+    <div *ngIf="(appointments$ | async)?.length === 0" class="no-appointments">No appointments for this day</div>
+    <div *ngFor="let appointment of getAppointmentsForSelectedDate(appointments$ | async)" class="appointment" (click)="deleteAppointment(appointment)">
+      <div class="title">{{appointment.title}}</div>
+      <div class="time">{{appointment.start | date: 'shortTime'}} - {{appointment.end | date: 'shortTime'}}</div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+  <div class="appointment-list">
+  <app-appointment *ngFor="let appointment of appointments$ | async" [appointment]="appointment"
+   (click)="deleteAppointment(appointment)"></app-appointment>
+</div>
+
+<div class="appointment-list">
+    <h2>Appointment List</h2>
+    <ul>
+      <li *ngFor="let appointment of appointments">
+        <div>
+          <strong>{{appointment.title}}</strong>
+          <button mat-icon-button color="warn" aria-label="Delete" (click)="deleteAppointment(appointment)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+        <p>
+          <span>{{appointment.start | date:'medium'}}</span>
+          <span>-</span>
+          <span>{{appointment.end | date:'medium'}}</span>
+        </p>
+        <p>{{appointment.description}}</p>
+      </li>
+    </ul>
+  </div>
+-->

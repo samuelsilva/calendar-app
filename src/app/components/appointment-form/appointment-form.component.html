@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Adicionar Compromisso</h2>
+<form #appointmentForm="ngForm">
+  <mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Título</mat-label>
+      <input matInput required [(ngModel)]="appointment.title" name="title">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Início</mat-label>
+      <input matInput required [(ngModel)]="appointment.start" name="start" type="datetime-local">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Fim</mat-label>
+      <input matInput required [(ngModel)]="appointment.end" name="end" type="datetime-local">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Descrição</mat-label>
+      <textarea matInput [(ngModel)]="appointment.description" name="description"></textarea>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button [disabled]="appointmentForm.invalid" (click)="addAppointment()">Adicionar</button>
+  </mat-dialog-actions>
+</form>

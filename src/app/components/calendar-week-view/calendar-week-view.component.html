@@ -1,0 +1,11 @@
+<div class="calendar-week-view">
+    <div class="calendar-week-view-header">
+      <h3>Week of {{startOfWeek | date: 'mediumDate'}} - {{endOfWeek | date: 'mediumDate'}}</h3>
+    </div>
+    <div class="calendar-week-view-content">
+        <div class="calendar-week-view-day" *ngFor="let day of daysOfWeek">
+          <h4>{{day | date: 'EEE'}}</h4>
+          <app-calendar-day-view [date]="day"></app-calendar-day-view>
+        </div>
+      </div>
+      

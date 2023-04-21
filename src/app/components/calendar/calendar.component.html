@@ -1,0 +1,57 @@
+<!--<app-calendar>
+  <app-calendar-month-view [selectedDate]="selectedDate"></app-calendar-month-view>
+  <app-calendar-week-view [selectedDate]="selectedDate"></app-calendar-week-view>
+  <app-calendar-day-view [selectedDate]="selectedDate"></app-calendar-day-view>
+  <app-appointment-list></app-appointment-list>
+  <app-appointment-form [selectedDate]="selectedDate"></app-appointment-form>
+</app-calendar>
+-->
+
+
+<div class="calendar">
+  <div class="calendar-header">
+    <h2>Appointments</h2>
+    <button mat-raised-button color="primary" (click)="openAppointmentDialog()">New Appointment</button>
+  </div>
+  <app-calendar-day-view [date]="today"></app-calendar-day-view>
+</div>
+
+<!--<div class="calendar">
+    <div class="calendar-header">
+      <button (click)="prev()">Prev</button>
+      <h2>{{ currentMonth }} {{ currentYear }}</h2>
+      <button (click)="next()">Next</button>
+    </div>
+    <div class="calendar-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let week of weeks">
+            <ng-container *ngFor="let day of week">
+              <td (click)="onDateSelect(day.date)">
+                <div class="date" [ngClass]="{ 'today': day.isToday, 'selected': day.date === selectedDate }">
+                  {{ day.date | date:'d' }}
+                </div>
+                <div class="appointments">
+                  <div class="appointment" *ngFor="let appointment of appointments">
+                    {{ appointment.title }}
+                  </div>
+                </div>
+              </td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+-->
